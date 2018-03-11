@@ -1,6 +1,14 @@
 # add-alexa-rank-ifttt
 An IFTTT applets that allow the users to Keep track of their site's global or country rank in Alexa. Every time a hit to the API, log it into a Google spreadsheet.
 
+![Loading the first image](ifttt.jpg)
+
+This is what it looks like when you just created the applet
+
+![Loading the second image](google%20sheets.PNG)
+
+This is what it looks like when it was just added into the Google Sheets (second col is global rank, third col is country, and forth col is the country rank if any)
+
 ## Why is this useful?
 People who own their own site and care about their site ranking, normally, they would just get on to Alexa site multiple times a day and look at the ranking. Some geek people like me might even write a script that does that lol I mean, I am interested in seeing how my site is doing today but I am also interested in seeing how my site is doing in the past 3 months or even a year or more. Currently, a free version of Alexa only provides up to 6 months worth of data for any site with ranking better than a million. Site that records a million and upwards does not even show at all on Alexa beside the ranking for today. As of now, my personal blog [site](https://poanchen.github.io) currently ranked at 1,481,428 as global rank and 271,328 in India. As you can see in the [site](https://www.alexa.com/siteinfo/poanchen.github.io), it has no past data whatsoever because Alexa consider it as lower traffic site. What if somehow I still want to record it? And, not manully but it just records itself and I can come by and check it out anytime. This is why I write this little script that will help me automate all these.
 
@@ -11,7 +19,7 @@ Okay enough of writing! Let's get back to work and I will show you how this thin
 ## Getting started
 
 ### Prerequisites:
-- Python 2.7 or better
+- Python 2.7 or up
 - A remote web server that allows you to run a cron job
 
 ### Installation
@@ -58,3 +66,6 @@ This is how I set up my cron job.
 date >> add-alexa-rank.log;
 ```
 This cron job will run the script once a day at 9am sharp. It will also record any log to the add-alexa-rank.log for debugging purposes.
+
+### Note
+It is possible that the passed-in website does not have rank for both global and country rank. In that case, it will [try](https://github.com/poanchen/add-alexa-rank-ifttt/blob/master/getAlexaRank.py#L11) to get it, if failed, it will simlpy return None in Python. In Google Sheets, that col will simply be empty. (not "" or '' but actually empty lol)
