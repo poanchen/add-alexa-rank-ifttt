@@ -47,7 +47,7 @@ config["iftttApiMakerKey"] = os.environ['IFTTTAPIMAKERKEY']
 config["alexaCli"] = 10
 config["alexaApiEndpoint"] = "http://data.alexa.com/data"
 ```
-As you can see, I posted my code on to GitHub. As a result, I do not want to share my IFTTT maker API key to the whole world. Instead, I saved it as an environment variable, only accessble in the server. (so that it will be save-ish)
+As you can see, I posted my code on to GitHub. As a result, I do not want to share my IFTTT maker API key to the whole world. Instead, I saved it as an environment variable, only accessble in the server. (so that it will be safe-ish)
 
 In case you were wondering how to set that up, check out my .env.example file,
 ```
